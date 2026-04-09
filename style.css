@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #1e293b;
+        --accent: #6366f1;
+    }
+
+    body {
+        @apply font-['Lexend'] transition-colors duration-300;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+    }
+}
+
+@layer components {
+    .task-card {
+        @apply transition-all duration-200;
+    }
+
+    .energy-low { border-left: 6px solid #10b981; }
+    .energy-medium { border-left: 6px solid #f59e0b; }
+    .energy-high { border-left: 6px solid #ef4444; }
+
+    .progress-ring {
+        @apply transition-all duration-300 origin-center -rotate-90;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+.focus-pulse { animation: pulse-soft 3s infinite ease-in-out; }
